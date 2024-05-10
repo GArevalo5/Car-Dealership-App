@@ -1,7 +1,4 @@
 package com.pluralsight.models;
-
-import java.util.ArrayList;
-
 public class Vehicle {
 
     //vehicle variables
@@ -13,6 +10,7 @@ public class Vehicle {
     private String color;
     private int odometer;
     private double price;
+
     //constructor
     public Vehicle(int vin,int year,String make,String model,String vehicleType,String color,int odometer,double price)
     {
@@ -25,7 +23,7 @@ public class Vehicle {
         this.odometer = odometer;
         this.price = price;
     }
-
+    //getters and setters
     public int getVin() {
         return vin;
     }
@@ -89,8 +87,6 @@ public class Vehicle {
     public void setPrice(double price) {
         this.price = price;
     }
-
-    
 
 
 }

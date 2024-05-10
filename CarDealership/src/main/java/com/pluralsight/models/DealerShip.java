@@ -6,13 +6,13 @@ public class DealerShip {
     private String name;
     private String address;
     private String phone;
-    private String inventory;
+    private ArrayList<Vehicle> vehicles;
 
-    public DealerShip(String name, String address, String phone, String inventory) {
+    public DealerShip(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = inventory;
+        this.vehicles = new ArrayList<>();
     }
 
     public String getName() {
@@ -39,11 +39,10 @@ public class DealerShip {
         this.phone = phone;
     }
 
-    public String getInventory() {
-        return inventory;
+    public void addVehicle(Vehicle vehicle){
+        vehicles.add(vehicle);
     }
 
-    public void setInventory(String inventory) {
-        this.inventory = inventory;
-    }
+
+
 }

@@ -1,7 +1,10 @@
 package com.pluralsight.application;
 
+import ui.UserInterface;
+
 public class Program {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public void run(){
+        UserInterface homeScreen = new UserInterface();
+        homeScreen.MainScreen();
     }
 }
