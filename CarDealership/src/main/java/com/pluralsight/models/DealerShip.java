@@ -1,6 +1,9 @@
 package com.pluralsight.models;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class DealerShip {
     private String name;
@@ -41,6 +44,27 @@ public class DealerShip {
 
     public void addVehicle(Vehicle vehicle){
         vehicles.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle){
+        vehicles.remove(vehicle);
+    }
+
+    public static void displayAllVehicles(){
+        try{
+            DealershipFileManager.getDealership();
+                System.out.println("All vehicles in the dealership:");
+                System.out.println("-".repeat(60));
+                System.out.println();
+
+
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 

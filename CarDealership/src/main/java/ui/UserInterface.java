@@ -23,7 +23,9 @@ public class UserInterface {
                 System.out.println("8) Add a vehicle");
                 System.out.println("9) Remove a vehicle");
                 System.out.println("99) Quit");
+                System.out.print("Type your option here: ");
                 int choice = UserInput.nextInt();
+
                 switch (choice){
                     case 1:
                         // Find vehicles within a price range
@@ -45,6 +47,7 @@ public class UserInterface {
                         break;
                     case 7:
                         //List All vehicles
+                        DealerShip.displayAllVehicles();
                         break;
                     case 8:
                         //Add a vehicle
