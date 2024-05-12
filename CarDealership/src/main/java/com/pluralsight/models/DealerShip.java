@@ -1,8 +1,10 @@
 package com.pluralsight.models;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class DealerShip {
@@ -42,22 +44,40 @@ public class DealerShip {
         this.phone = phone;
     }
 
-    public void addVehicle(Vehicle vehicle){
+    public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle){
+    public void removeVehicle(Vehicle vehicle) {
         vehicles.remove(vehicle);
     }
 
-    public static void displayAllVehicles(){
+    public static void displayAllVehicles() {
+        System.out.println("All vehicles in the dealership:");
+        try {
+            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
+
+            System.out.println("Dealership: " + dealerShip.getName() + " " + dealerShip.getAddress() + " " + dealerShip.getPhone() + " ");
+            for (Vehicle vehicle : dealerShip.vehicles) {
+                System.out.println("Vin: " + vehicle.getVin());
+                System.out.println("Year: " + vehicle.getYear());
+                System.out.println("Make: " + vehicle.getMake());
+                System.out.println("Model: " + vehicle.getModel());
+                System.out.println("Color: " + vehicle.getColor());
+                System.out.println("Odometer: " + vehicle.getOdometer());
+                System.out.println("Price: " + vehicle.getPrice());
+            }
+            System.out.println("-".repeat(60));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addVehicle() {
+        System.out.println("Work in progress");
         try{
-            DealershipFileManager.getDealership();
-                System.out.println("All vehicles in the dealership:");
-                System.out.println("-".repeat(60));
-                System.out.println();
-
-
+            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
 
 
         } catch (Exception e) {
@@ -66,7 +86,15 @@ public class DealerShip {
 
 
     }
+    public static void removeVehicle()
+    {
+        System.out.println("Work in progress");
+        try{
+            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-
-
+    }
 }

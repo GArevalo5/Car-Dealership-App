@@ -1,6 +1,7 @@
 package ui;
 
 import com.pluralsight.models.DealerShip;
+import com.pluralsight.models.DealershipFileManager;
 
 import java.util.Scanner;
 
@@ -23,6 +24,8 @@ public class UserInterface {
                 System.out.println("8) Add a vehicle");
                 System.out.println("9) Remove a vehicle");
                 System.out.println("99) Quit");
+                System.out.println("-".repeat(35));
+                System.out.println();
                 System.out.print("Type your option here: ");
                 int choice = UserInput.nextInt();
 
@@ -51,11 +54,14 @@ public class UserInterface {
                         break;
                     case 8:
                         //Add a vehicle
+                        DealershipFileManager.addVehicle();
                         break;
                     case 9:
                         // Remove a vehicle
+                        DealerShip.removeVehicle();
                         break;
                     case 99:
+                        //ends app
                         System.out.println("Shutting down");
                         System.exit(0);
                 }

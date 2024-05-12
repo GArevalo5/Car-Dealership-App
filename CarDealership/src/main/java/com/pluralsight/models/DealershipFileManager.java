@@ -1,14 +1,11 @@
 package com.pluralsight.models;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class DealershipFileManager {
 
-    public static void getDealership() {
+    public static DealerShip getDealershipObjects() throws IOException {
         //file reader
 
         try (FileReader file = new FileReader("files/inventory.csv")) {
@@ -30,9 +27,8 @@ public class DealershipFileManager {
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
+        return null;
     }
 
     public static void addVehicle() {
@@ -42,46 +38,46 @@ public class DealershipFileManager {
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             Scanner userInput = new Scanner(System.in);
-//            //vin
-//            System.out.print("Please enter the vin: ");
-//            int vin = userInput.nextInt();
-//            bufferedWriter.write(vin);
-//            bufferedWriter.write("|");
-//            //year
-//            System.out.print("Please enter the year: ");
-//            int year = userInput.nextInt();
-//            bufferedWriter.write(year);
-//            bufferedWriter.write("|");
-//            //make
-//            System.out.print("Please enter the make: ");
-//            String make = userInput.nextLine().strip();
-//            bufferedWriter.write(make);
-//            //model
-//            System.out.print("Please enter what it was for: ");
-//            String model = userInput.nextLine().strip();
-//            bufferedWriter.write(model);
-//            bufferedWriter.write("|");
-//            //vehicleType
-//            System.out.print("Please enter what it was for: ");
-//            String vehicleType = userInput.nextLine().strip();
-//            bufferedWriter.write(vehicleType);
-//            bufferedWriter.write("|");
-//            //color
-//            System.out.print("Please enter what it was for: ");
-//            String color = userInput.nextLine().strip();
-//            bufferedWriter.write(color);
-//            bufferedWriter.write("|");
-//            //odometer
-//            System.out.print("Please enter what it was for: ");
-//            int odometer = userInput.nextInt();
-//            bufferedWriter.write(odometer);
-//            bufferedWriter.write("|");
-//            //price
-//            System.out.print("Please enter amount deposited: ");
-//            double price = userInput.nextDouble();
-//            bufferedWriter.write(String.valueOf(price));
-//            bufferedWriter.close();
-//            System.out.println();
+            //vin
+            System.out.print("Please enter the vin: ");
+            int vin = userInput.nextInt();
+            bufferedWriter.write(vin);
+            bufferedWriter.write("|");
+            //year
+            System.out.print("Please enter the year: ");
+            int year = userInput.nextInt();
+            bufferedWriter.write(year);
+            bufferedWriter.write("|");
+            //make
+            System.out.print("Please enter the make: ");
+            String make = userInput.nextLine().strip();
+            bufferedWriter.write(make);
+            //model
+            System.out.print("Please enter what it was for: ");
+            String model = userInput.nextLine().strip();
+            bufferedWriter.write(model);
+            bufferedWriter.write("|");
+            //vehicleType
+            System.out.print("Please enter what it was for: ");
+            String vehicleType = userInput.nextLine().strip();
+            bufferedWriter.write(vehicleType);
+            bufferedWriter.write("|");
+            //color
+            System.out.print("Please enter what it was for: ");
+            String color = userInput.nextLine().strip();
+            bufferedWriter.write(color);
+            bufferedWriter.write("|");
+            //odometer
+            System.out.print("Please enter what it was for: ");
+            int odometer = userInput.nextInt();
+            bufferedWriter.write(odometer);
+            bufferedWriter.write("|");
+            //price
+            System.out.print("Please enter amount deposited: ");
+            double price = userInput.nextDouble();
+            bufferedWriter.write(String.valueOf(price));
+            bufferedWriter.close();
+            System.out.println();
             } catch (IOException e) {
             throw new RuntimeException(e);
             }
