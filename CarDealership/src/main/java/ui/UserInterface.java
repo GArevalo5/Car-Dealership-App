@@ -55,6 +55,7 @@ public class UserInterface {
                     case 8:
                         //Add a vehicle
                         DealershipFileManager.addVehicle();
+                        //DealerShip.addVehicle();
                         break;
                     case 9:
                         // Remove a vehicle

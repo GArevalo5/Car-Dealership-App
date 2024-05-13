@@ -26,3 +26,11 @@ Although I don't have the dealership option setup yet to add a car I currently h
 
 bugs or known issues:
 -currently gives a error about the dealership name with it saying it's null
+
+5/12/24
+Tried adding the addvehicle option and removevehicle option. unforutnaly they don't exactly function as intened yet. Same with trying to test if they work.
+
+bugs or known issues:
+-currently gives a error about the dealership name with it saying it's null
+-addvehicle dosen't work as inteneded yet
+- remove vehicle also does not work.
