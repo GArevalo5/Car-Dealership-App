@@ -1,4 +1,7 @@
 package com.pluralsight.models;
+
+import ui.UserInterface;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,13 +9,13 @@ public class DealerShip {
     private String name;
     private String address;
     private String phone;
-    ArrayList<Vehicle> vehicles;
+    public static ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     public DealerShip(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.vehicles = new ArrayList<>();
+//        this.vehicles = new ArrayList<>();
     }
 
     public String getName() {
@@ -47,93 +50,69 @@ public class DealerShip {
         vehicles.remove(vehicle);
     }
 
-    public static void displayAllVehicles() {
-        System.out.println("All vehicles in the dealership:");
-        try {
-            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
-
-            System.out.println("Dealership: " + dealerShip.getName() + " " + dealerShip.getAddress() + " " + dealerShip.getPhone() + " ");
-            for (Vehicle vehicle : dealerShip.vehicles) {
-                System.out.println("Vin: " + vehicle.getVin());
-                System.out.println("Year: " + vehicle.getYear());
-                System.out.println("Make: " + vehicle.getMake());
-                System.out.println("Model: " + vehicle.getModel());
-                System.out.println("Color: " + vehicle.getColor());
-                System.out.println("Odometer: " + vehicle.getOdometer());
-                System.out.println("Price: " + vehicle.getPrice());
-            }
-            System.out.println("-".repeat(60));
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public static void addVehicle() {
         Scanner userInput = new Scanner(System.in);
-        try{
-            Vehicle newVehicle = new Vehicle();
-            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
-            for (Vehicle vehicle: dealerShip.vehicles) {
-                // vin
-                System.out.println("Enter the vin: ");
-                int vin = userInput.nextInt();
-                newVehicle.setVin(vin);
 
-                //year
-                System.out.println("Enter the year: ");
-                int year = userInput.nextInt();
-                newVehicle.setYear(year);
+        // vin
+        System.out.println("Enter the vin: ");
+        int vin = userInput.nextInt();
 
-                // make
-                System.out.println("Enter the make: ");
-                String make = userInput.next();
-                newVehicle.setMake(make);
 
-                // model
-                System.out.println("Enter the model: ");
-                String model = userInput.next();
-                newVehicle.setModel(model);
+        //year
+        System.out.println("Enter the year: ");
+        int year = userInput.nextInt();
 
-                // vehicle type
-                System.out.println("Enter the vehicle type: ");
-                String vehicleType = userInput.next();
-                newVehicle.setVehicleType(vehicleType);
 
-                //color
-                System.out.println("Enter the color: ");
-                String color = userInput.next();
-                newVehicle.setColor(color);
+        // make
+        System.out.println("Enter the make: ");
+        String make = userInput.next();
 
-                //odometer
-                System.out.println("Enter the odometer: ");
-                int odometer = userInput.nextInt();
-                newVehicle.setOdometer(odometer);
 
-                // price
-                System.out.println("Enter the price: ");
-                double price = userInput.nextDouble();
-                newVehicle.setPrice(price);
+        // model
+        System.out.println("Enter the model: ");
+        String model = userInput.next();
 
-                //should add the new vehicle to the array list.
-                dealerShip.addVehicle(newVehicle);
-            }
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        // vehicle type
+        System.out.println("Enter the vehicle type: ");
+        String vehicleType = userInput.next();
+
+
+        //color
+        System.out.println("Enter the color: ");
+        String color = userInput.next();
+
+
+        //odometer
+        System.out.println("Enter the odometer: ");
+        int odometer = userInput.nextInt();
+
+
+        // price
+        System.out.println("Enter the price: ");
+        double price = userInput.nextDouble();
+
+
+        //should add the new vehicle to the array list.
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        vehicles.add(vehicle);
+        UserInterface.displayAllVehicles();
+
     }
 
-    public static void removeVehicle()
-    {
-        System.out.println("Work in progress");
+    public static void removeVehicle() {
         Scanner userInput = new Scanner(System.in);
-        try{
+        System.out.println("Please enter the vin: ");
+        int vin = userInput.nextInt();
+        try {
             DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
-            for (Vehicle vehicle : dealerShip.vehicles)
-            System.out.println("Please enter the vin: ");
-            int vin = userInput.nextInt();
-            dealerShip.vehicles.remove(vin);
+            for (int i = 0; i < vehicles.size(); i++)
+
+                if (vehicles.get(i).getVin() == vin) {
+                    vehicles.remove(vehicles.get(i));
+                }
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -2,8 +2,11 @@ package ui;
 
 import com.pluralsight.models.DealerShip;
 import com.pluralsight.models.DealershipFileManager;
+import com.pluralsight.models.Vehicle;
 
 import java.util.Scanner;
+
+import static com.pluralsight.models.DealerShip.vehicles;
 
 public class UserInterface {
     public void MainScreen(){
@@ -50,12 +53,11 @@ public class UserInterface {
                         break;
                     case 7:
                         //List All vehicles
-                        DealerShip.displayAllVehicles();
+                        displayAllVehicles();
                         break;
                     case 8:
                         //Add a vehicle
-                        DealershipFileManager.addVehicle();
-                        //DealerShip.addVehicle();
+                        DealerShip.addVehicle();
                         break;
                     case 9:
                         // Remove a vehicle
@@ -72,4 +74,30 @@ public class UserInterface {
         }
 
     }
+
+    public static void displayAllVehicles() {
+        System.out.println("All vehicles in the dealership:");
+        try {
+//            DealerShip dealerShip = DealershipFileManager.getDealershipObjects();
+
+//            System.out.println("Dealership: " + dealerShip.getName() + " " + dealerShip.getAddress() + " " + dealerShip.getPhone() + " ");
+            for (Vehicle vehicle : vehicles) {
+                System.out.println("Vin: " + vehicle.getVin());
+                System.out.println("Year: " + vehicle.getYear());
+                System.out.println("Make: " + vehicle.getMake());
+                System.out.println("Model: " + vehicle.getModel());
+                System.out.println("Color: " + vehicle.getColor());
+                System.out.println("Odometer: " + vehicle.getOdometer());
+                System.out.println("Price: " + vehicle.getPrice());
+                System.out.println("-".repeat(60));
+                System.out.println();
+            }
+            System.out.println(vehicles.size());
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
 }

@@ -34,3 +34,10 @@ bugs or known issues:
 -currently gives a error about the dealership name with it saying it's null
 -addvehicle dosen't work as inteneded yet
 - remove vehicle also does not work.
+
+5/13/24
+Display all, add vehcicle and remove vehicle screens all work now. with the display all vehicles I wasn't able to keep the dealership that they were at on that screen due to how I had it setup. Otherwise it would keep remaking the loops and dublicate the vehicles. 
+![alt text](<loop problem.jpg>)
+(The blacked out code is what was causing it to dublicate after using the list all method. Currently leaving it in there till I can figure it out again at some point).
+bugs or issues:
+-Can't display dealership name in display all without causing a dublicate array list.
